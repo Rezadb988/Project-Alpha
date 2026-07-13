@@ -3,30 +3,30 @@ body {
     background: #050505;
     color: #ffffff;
     text-align: center;
-    padding: 100px 20px;
+    padding: 80px 20px;
 }
 
 .hero {
-    max-width: 800px;
+    max-width: 900px;
     margin: auto;
 }
 
 h1 {
     font-size: 52px;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     margin-bottom: 35px;
     white-space: nowrap;
 }
 
-p {
+.hero > p {
     font-size: 22px;
     line-height: 2;
-    color: #d4d4d4;
+    color: #d6d6d6;
 }
 
 button {
-    margin-top: 40px;
-    padding: 16px 45px;
+    margin-top: 35px;
+    padding: 16px 50px;
     font-size: 18px;
     color: #050505;
     background: #d4af37;
@@ -34,4 +34,35 @@ button {
     border-radius: 50px;
     cursor: pointer;
     font-weight: bold;
+}
+
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 70px;
+}
+
+
+.card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(212,175,55,0.25);
+    border-radius: 20px;
+    padding: 30px 20px;
+    backdrop-filter: blur(10px);
+}
+
+
+.card h2 {
+    color: #d4af37;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+
+.card p {
+    font-size: 16px;
+    color: #cfcfcf;
+    line-height: 1.8;
 }
