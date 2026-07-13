@@ -182,3 +182,35 @@ button {
     border: 1px solid #333;
     border-radius: 15px;
 }
+
+.join a,
+.free a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.main-btn,
+.second-btn {
+    display: inline-block;
+    padding: 16px 45px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.main-btn {
+    background: #d4af37;
+    color: #050505 !important;
+}
+
+.second-btn {
+    background: transparent;
+    color: #d4af37 !important;
+    border: 1px solid #d4af37;
+}
+
+.free a {
+    color: #d4af37 !important;
+    font-weight: bold;
+}
