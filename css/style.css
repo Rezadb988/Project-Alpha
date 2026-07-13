@@ -86,3 +86,27 @@ button {
 .mission {
     margin-top: 70px;
 }
+.join {
+    margin-top: 45px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+
+.join button:first-child {
+    background: #d4af37;
+    color: #050505;
+}
+
+
+.join button:last-child {
+    background: transparent;
+    color: #d4af37;
+    border: 1px solid #d4af37;
+}
+
+
+.join button:hover {
+    transform: translateY(-3px);
+}
