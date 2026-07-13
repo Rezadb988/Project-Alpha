@@ -149,3 +149,36 @@ button {
     margin-top: 25px;
     color: #d4af37;
 }
+
+.login-box {
+    max-width: 420px;
+    margin: 100px auto;
+    padding: 40px 30px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(212,175,55,0.3);
+    border-radius: 25px;
+    backdrop-filter: blur(12px);
+}
+
+
+.login-box h1 {
+    font-size: 36px;
+    white-space: normal;
+}
+
+
+.login-box p {
+    font-size: 18px;
+    color: #cccccc;
+}
+
+
+.login-box input {
+    width: 90%;
+    padding: 15px;
+    margin: 10px;
+    background: #111;
+    color: white;
+    border: 1px solid #333;
+    border-radius: 15px;
+}
