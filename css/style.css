@@ -3,13 +3,25 @@ body {
     background: #050505;
     color: #ffffff;
     text-align: center;
-    padding: 80px 20px;
+    padding: 40px 20px;
 }
+
+
+.language {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    color: #d4af37;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
 
 .hero {
     max-width: 900px;
-    margin: auto;
+    margin: 70px auto 0;
 }
+
 
 h1 {
     font-size: 52px;
@@ -18,11 +30,13 @@ h1 {
     white-space: nowrap;
 }
 
+
 .hero > p {
     font-size: 22px;
     line-height: 2;
     color: #d6d6d6;
 }
+
 
 button {
     margin-top: 35px;
@@ -45,7 +59,8 @@ button {
 }
 
 
-.card {
+.card,
+.mission {
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(212,175,55,0.25);
     border-radius: 20px;
@@ -54,15 +69,20 @@ button {
 }
 
 
-.card h2 {
+.card h2,
+.mission h2 {
     color: #d4af37;
-    font-size: 24px;
     margin-bottom: 15px;
 }
 
 
-.card p {
-    font-size: 16px;
+.card p,
+.mission p {
     color: #cfcfcf;
     line-height: 1.8;
+}
+
+
+.mission {
+    margin-top: 70px;
 }
