@@ -1,216 +1,330 @@
-body {
-    font-family: Arial, sans-serif;
-    background: #050505;
-    color: #ffffff;
-    text-align: center;
-    padding: 40px 20px;
+/* ===========================
+   Project Alpha v2.0
+=========================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-
-.language {
-    position: absolute;
-    top: 25px;
-    right: 30px;
-    color: #d4af37;
-    font-size: 15px;
-    letter-spacing: 1px;
+html{
+scroll-behavior:smooth;
 }
 
+body{
 
-.hero {
-    max-width: 900px;
-    margin: 70px auto 0;
+font-family:'Vazirmatn',sans-serif;
+
+background:#0B0B0B;
+
+color:#F5F5F5;
+
+line-height:1.8;
+
+overflow-x:hidden;
+
 }
 
+a{
 
-h1 {
-    font-size: 52px;
-    letter-spacing: 3px;
-    margin-bottom: 35px;
-    white-space: nowrap;
+text-decoration:none;
+
+color:inherit;
+
 }
 
+img{
 
-.hero > p {
-    font-size: 22px;
-    line-height: 2;
-    color: #d6d6d6;
+max-width:100%;
+
+display:block;
+
 }
 
+:root{
 
-button {
-    margin-top: 35px;
-    padding: 16px 50px;
-    font-size: 18px;
-    color: #050505;
-    background: #d4af37;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    font-weight: bold;
+--gold:#D4AF37;
+
+--black:#0B0B0B;
+
+--white:#F5F5F5;
+
+--gray:#8C8C8C;
+
+--glass:rgba(255,255,255,.05);
+
 }
 
+.header{
 
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 25px;
-    margin-top: 70px;
+position:fixed;
+
+top:0;
+
+right:0;
+
+width:100%;
+
+padding:22px 8%;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+background:rgba(11,11,11,.75);
+
+backdrop-filter:blur(16px);
+
+z-index:999;
+
+border-bottom:1px solid rgba(212,175,55,.12);
+
 }
 
+.logo{
 
-.card,
-.mission {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(212,175,55,0.25);
-    border-radius: 20px;
-    padding: 30px 20px;
-    backdrop-filter: blur(10px);
+font-size:28px;
+
+font-weight:900;
+
+letter-spacing:.5px;
+
+color:var(--gold);
+
 }
 
+nav{
 
-.card h2,
-.mission h2 {
-    color: #d4af37;
-    margin-bottom: 15px;
+display:flex;
+
+gap:26px;
+
+align-items:center;
+
 }
 
+nav a{
 
-.card p,
-.mission p {
-    color: #cfcfcf;
-    line-height: 1.8;
+transition:.3s;
+
+font-weight:600;
+
 }
 
+nav a:hover{
 
-.mission {
-    margin-top: 70px;
-}
-.join {
-    margin-top: 45px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+color:var(--gold);
+
 }
 
+.gold-btn{
 
-.join button:first-child {
-    background: #d4af37;
-    color: #050505;
+padding:12px 26px;
+
+border-radius:50px;
+
+background:var(--gold);
+
+color:#111;
+
+font-weight:700;
+
+}
+.hero{
+
+min-height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+padding:150px 20px 80px;
+
+background:
+radial-gradient(circle at top,#2a2110 0%,#0B0B0B 55%);
+
 }
 
+.hero-content{
 
-.join button:last-child {
-    background: transparent;
-    color: #d4af37;
-    border: 1px solid #d4af37;
+max-width:900px;
+
 }
 
+.hero h1{
 
-.join button:hover {
-    transform: translateY(-3px);
+font-size:64px;
+
+font-weight:900;
+
+margin-bottom:25px;
+
+line-height:1.2;
+
 }
 
-.signup-box {
-    max-width: 420px;
-    margin: 100px auto;
-    padding: 40px 30px;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(212,175,55,0.3);
-    border-radius: 25px;
-    backdrop-filter: blur(12px);
+.hero p{
+
+font-size:22px;
+
+color:var(--gray);
+
+margin-bottom:45px;
+
 }
 
+.hero-buttons{
 
-.signup-box h1 {
-    font-size: 36px;
-    white-space: normal;
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+flex-wrap:wrap;
+
 }
 
+.main-btn{
 
-.signup-box p {
-    font-size: 18px;
-    color: #cccccc;
+background:var(--gold);
+
+color:#111;
+
+padding:18px 42px;
+
+border-radius:60px;
+
+font-size:18px;
+
+font-weight:800;
+
+transition:.35s;
+
+box-shadow:0 0 35px rgba(212,175,55,.25);
+
 }
 
+.main-btn:hover{
 
-.signup-box input {
-    width: 90%;
-    padding: 15px;
-    margin: 10px;
-    background: #111;
-    color: white;
-    border: 1px solid #333;
-    border-radius: 15px;
+transform:translateY(-5px);
+
+box-shadow:0 0 45px rgba(212,175,55,.45);
+
 }
 
+.second-btn{
 
-.free {
-    margin-top: 25px;
-    color: #d4af37;
+border:1px solid var(--gold);
+
+padding:18px 42px;
+
+border-radius:60px;
+
+transition:.35s;
+
 }
 
-.login-box {
-    max-width: 420px;
-    margin: 100px auto;
-    padding: 40px 30px;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(212,175,55,0.3);
-    border-radius: 25px;
-    backdrop-filter: blur(12px);
+.second-btn:hover{
+
+background:var(--gold);
+
+color:#111;
+
+    }
+.features{
+
+padding:110px 8%;
+
 }
 
+.section-title{
 
-.login-box h1 {
-    font-size: 36px;
-    white-space: normal;
+text-align:center;
+
+margin-bottom:70px;
+
 }
 
+.section-title h2{
 
-.login-box p {
-    font-size: 18px;
-    color: #cccccc;
+font-size:42px;
+
+margin-bottom:15px;
+
 }
 
+.section-title p{
 
-.login-box input {
-    width: 90%;
-    padding: 15px;
-    margin: 10px;
-    background: #111;
-    color: white;
-    border: 1px solid #333;
-    border-radius: 15px;
+color:var(--gray);
+
+font-size:18px;
+
 }
 
-.join a,
-.free a {
-    text-decoration: none;
-    color: inherit;
+.feature-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+gap:30px;
+
 }
 
-.main-btn,
-.second-btn {
-    display: inline-block;
-    padding: 16px 45px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
+.feature-card{
+
+background:var(--glass);
+
+border:1px solid rgba(212,175,55,.15);
+
+backdrop-filter:blur(18px);
+
+padding:35px;
+
+border-radius:22px;
+
+transition:.35s;
+
+text-align:center;
+
 }
 
-.main-btn {
-    background: #d4af37;
-    color: #050505 !important;
+.feature-card:hover{
+
+transform:translateY(-10px);
+
+border-color:var(--gold);
+
+box-shadow:0 0 35px rgba(212,175,55,.18);
+
 }
 
-.second-btn {
-    background: transparent;
-    color: #d4af37 !important;
-    border: 1px solid #d4af37;
+.icon{
+
+font-size:48px;
+
+margin-bottom:18px;
+
 }
 
-.free a {
-    color: #d4af37 !important;
-    font-weight: bold;
+.feature-card h3{
+
+font-size:24px;
+
+margin-bottom:12px;
+
 }
+
+.feature-card p{
+
+color:var(--gray);
+
+    }
