@@ -3,29 +3,84 @@
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Project Alpha - Sign Up</title>
+<title>Project Alpha - Sign Up</title>
 
-    <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css">
 
 </head>
+
+<body>
+
+<div class="language">
+فارسی | English
+</div>
+
+<div class="signup-box">
+
+<h1>
+ساخت حساب Alpha
+</h1>
+
+<p>
+سفر رشد خودت را از امروز شروع کن.
+</p>
+
+<input
+type="text"
+id="username"
+placeholder="نام کاربری">
+
+<input
+type="email"
+id="email"
+placeholder="ایمیل">
+
+<input
+type="password"
+id="password"
+placeholder="رمز عبور">
+
+<button class="main-btn" onclick="saveUser()">
+شروع سفر Alpha
+</button>
+
+<div class="free">
+
+🎁
+۳ روز دسترسی رایگان برای شروع
+
+<br><br>
+
+قبلاً حساب داری؟
+
+<br>
+
+<a href="login.html">
+ورود به Alpha
+</a>
+
+</div>
+
+</div>
 
 <script>
 
 function saveUser(){
 
 const username=document.getElementById("username").value;
-
 const email=document.getElementById("email").value;
-
 const password=document.getElementById("password").value;
 
+if(username==="" || email==="" || password===""){
+alert("لطفاً همه فیلدها را تکمیل کنید.");
+return;
+}
+
 localStorage.setItem("username",username);
-
 localStorage.setItem("email",email);
-
 localStorage.setItem("password",password);
 
 window.location.href="pages/dashboard.html";
@@ -34,77 +89,6 @@ window.location.href="pages/dashboard.html";
 
 </script>
 
-    
-<body>
-
-
-<div class="language">
-    فارسی | English
-</div>
-
-
-
-<div class="signup-box">
-
-
-    <h1>
-        ساخت حساب Alpha
-    </h1>
-
-
-    <p>
-        سفر رشد خودت را از امروز شروع کن.
-    </p>
-
-
-
-    <input
-type="text"
-id="username"
-placeholder="نام کاربری">
-
-
-    <input
-type="email"
-id="email"
-placeholder="ایمیل">
-
-
-    <input
-type="password"
-id="password"
-placeholder="رمز عبور">
-
-
-
-    <button class="main-btn" onclick="saveUser()">
-شروع سفر Alpha
-    </button>
-
-
-
-    <div class="free">
-
-        🎁
-        ۳ روز دسترسی رایگان برای شروع
-
-        <br><br>
-
-        قبلاً حساب داری؟
-
-        <br>
-
-        <a href="login.html">
-            ورود به Alpha
-        </a>
-
-    </div>
-
-
-</div>
-
-
-
 </body>
- 
+
 </html>
