@@ -13,6 +13,23 @@
 
 </head>
 
+  <script>
+
+const username=localStorage.getItem("username");
+
+if(username){
+
+document.getElementById("username").innerHTML=username;
+
+}else{
+
+document.getElementById("username").innerHTML="ثبت نشده";
+
+}
+
+  </script>
+
+  
 <body>
 
 <div class="language">
@@ -36,7 +53,7 @@
 <h2>نام کاربری</h2>
 
 <p id="username">
-در حال دریافت...
+...
 </p>
 
 </div>
