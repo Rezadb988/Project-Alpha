@@ -3,67 +3,84 @@
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Project Alpha - Login</title>
+<title>Project Alpha - Login</title>
 
-    <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css">
 
 </head>
 
-
 <body>
 
-
 <div class="language">
-    فارسی | English
+فارسی | English
 </div>
-
-
 
 <div class="login-box">
 
+<h1>
+ورود به Alpha
+</h1>
 
-    <h1>
-        ورود به Alpha
-    </h1>
+<p>
+ادامه مسیر رشد خودت را شروع کن.
+</p>
 
+<input
+type="email"
+id="email"
+placeholder="ایمیل">
 
-    <p>
-        ادامه مسیر رشد خودت را شروع کن.
-    </p>
+<input
+type="password"
+id="password"
+placeholder="رمز عبور">
 
+<button class="main-btn" onclick="loginUser()">
+ورود
+</button>
 
+<div class="free">
 
-    <input type="email" placeholder="ایمیل">
+هنوز حساب نداری؟
 
+<br>
 
-    <input type="password" placeholder="رمز عبور">
-
-
-
-    <button>
-        ورود
-    </button>
-
-
-
-    <div class="free">
-
-        هنوز حساب نداری؟
-        <br>
-
-        <a href="signup.html">
-            شروع مسیر Alpha را بساز
-        </a>
-
-    </div>
-
+<a href="signup.html">
+شروع مسیر Alpha را بساز
+</a>
 
 </div>
 
+</div>
 
+<script>
+
+function loginUser(){
+
+const email=document.getElementById("email").value;
+
+const password=document.getElementById("password").value;
+
+const savedEmail=localStorage.getItem("email");
+
+const savedPassword=localStorage.getItem("password");
+
+if(email===savedEmail && password===savedPassword){
+
+window.location.href="pages/dashboard.html";
+
+}else{
+
+alert("ایمیل یا رمز عبور اشتباه است.");
+
+}
+
+}
+
+</script>
 
 </body>
 
