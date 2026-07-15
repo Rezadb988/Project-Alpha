@@ -4,7 +4,6 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Goals | Project Alpha</title>
@@ -24,66 +23,133 @@
 <h1>🎯 اهداف من</h1>
 
 <p>
-
 اهدافی که می‌سازی آینده تو را می‌سازند.
-
 </p>
 
 <div class="cards">
 
 <div class="card">
 
-<h2>درآمد</h2>
+<label>
 
-<p>
+<input type="checkbox" id="goal1">
+
+<strong>درآمد</strong>
+
+<br>
+
 رسیدن به درآمد روزانه 10000 دلار
-</p>
+
+</label>
 
 </div>
 
 <div class="card">
 
-<h2>ترید</h2>
+<label>
 
-<p>
+<input type="checkbox" id="goal2">
+
+<strong>ترید</strong>
+
+<br>
+
 تبدیل شدن به تریدر حرفه‌ای
-</p>
+
+</label>
 
 </div>
 
 <div class="card">
 
-<h2>انگلیسی</h2>
+<label>
 
-<p>
+<input type="checkbox" id="goal3">
+
+<strong>انگلیسی</strong>
+
+<br>
+
 یادگیری کامل زبان انگلیسی
-</p>
+
+</label>
 
 </div>
 
 <div class="card">
 
-<h2>بدنسازی</h2>
+<label>
 
-<p>
+<input type="checkbox" id="goal4">
+
+<strong>بدنسازی</strong>
+
+<br>
+
 ساختن بدن ورزیده و آماده
-</p>
+
+</label>
 
 </div>
 
 </div>
+
+<h2 id="progress">
+پیشرفت: 0%
+</h2>
 
 <div class="join">
 
 <a href="dashboard.html" class="second-btn">
-
 بازگشت به داشبورد
-
 </a>
 
 </div>
 
 </div>
+
+<script>
+
+const goals = [
+document.getElementById("goal1"),
+document.getElementById("goal2"),
+document.getElementById("goal3"),
+document.getElementById("goal4")
+];
+
+goals.forEach((goal,index)=>{
+
+goal.checked = localStorage.getItem("goal"+index) === "true";
+
+goal.onchange=function(){
+
+localStorage.setItem("goal"+index,goal.checked);
+
+updateProgress();
+
+}
+
+});
+
+function updateProgress(){
+
+let done=0;
+
+goals.forEach(goal=>{
+
+if(goal.checked) done++;
+
+});
+
+const percent=Math.round((done/goals.length)*100);
+
+document.getElementById("progress").textContent="پیشرفت: "+percent+"%";
+
+}
+
+updateProgress();
+
+</script>
 
 </body>
 
