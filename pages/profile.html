@@ -4,7 +4,6 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Profile | Project Alpha</title>
@@ -13,23 +12,6 @@
 
 </head>
 
-  <script>
-
-const username=localStorage.getItem("username");
-
-if(username){
-
-document.getElementById("username").innerHTML=username;
-
-}else{
-
-document.getElementById("username").innerHTML="ثبت نشده";
-
-}
-
-  </script>
-
-  
 <body>
 
 <div class="language">
@@ -53,7 +35,7 @@ document.getElementById("username").innerHTML="ثبت نشده";
 <h2>نام کاربری</h2>
 
 <p id="username">
-...
+ثبت نشده
 </p>
 
 </div>
@@ -87,14 +69,22 @@ document.getElementById("username").innerHTML="ثبت نشده";
 <div class="join">
 
 <a href="dashboard.html" class="second-btn">
-
 بازگشت به داشبورد
-
 </a>
 
 </div>
 
 </div>
+
+<script>
+
+const username = localStorage.getItem("username");
+
+if(username){
+document.getElementById("username").textContent = username;
+}
+
+</script>
 
 </body>
 
