@@ -1,87 +1,75 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Project Alpha - Login</title>
-
-<link rel="stylesheet" href="css/style.css">
-
+<title>ورود | پروژه آلفا</title>
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
 
-<div class="language">
-فارسی | English
+<nav class="navbar">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="logo-mark">α</span><span data-i18n="brand">پروژه آلفا</span></a>
+    <div class="nav-actions">
+      <div class="lang-switch">
+        <button data-lang="fa">فا</button>
+        <button data-lang="en">EN</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="auth-wrap">
+  <div class="glass auth-card">
+    <div class="auth-logo">α</div>
+    <div class="auth-title" data-i18n="login_title">خوش برگشتی</div>
+    <div class="auth-sub" data-i18n="login_sub">برای ادامه وارد حساب کاربری شو</div>
+
+    <form id="loginForm">
+      <div class="field">
+        <label data-i18n="field_username">نام کاربری</label>
+        <input type="text" id="username" autocomplete="username" required>
+      </div>
+      <div class="field">
+        <label data-i18n="field_password">رمز عبور</label>
+        <input type="password" id="password" autocomplete="current-password" required>
+      </div>
+      <div class="flex justify-between items-center mb-16" style="font-size:.82rem;">
+        <label class="checkbox-row"><input type="checkbox" id="remember"><span data-i18n="remember_me">مرا به خاطر بسپار</span></label>
+        <a href="#" class="text-muted" data-i18n="forgot_pass" onclick="UI.toast(Lang.t('coming_soon'));return false;">رمز عبور را فراموش کردی؟</a>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block" data-i18n="btn_login">ورود</button>
+    </form>
+
+    <div class="auth-divider"><span data-i18n="or_continue">یا ادامه با</span></div>
+    <div class="social-row">
+      <button class="btn btn-ghost social-btn" onclick="UI.toast(Lang.t('coming_soon'))">Google</button>
+      <button class="btn btn-ghost social-btn" onclick="UI.toast(Lang.t('coming_soon'))">Apple</button>
+    </div>
+
+    <div class="auth-foot">
+      <span data-i18n="no_account">حساب کاربری نداری؟</span>
+      <a href="signup.html" data-i18n="signup_link">ثبت‌نام کن</a>
+    </div>
+  </div>
 </div>
 
-<div class="login-box">
-
-<h1>
-ورود به Alpha
-</h1>
-
-<p>
-ادامه مسیر رشد خودت را شروع کن.
-</p>
-
-<input
-type="email"
-id="email"
-placeholder="ایمیل">
-
-<input
-type="password"
-id="password"
-placeholder="رمز عبور">
-
-<button class="main-btn" onclick="loginUser()">
-ورود
-</button>
-
-<div class="free">
-
-هنوز حساب نداری؟
-
-<br>
-
-<a href="signup.html">
-شروع مسیر Alpha را بساز
-</a>
-
-</div>
-
-</div>
-
+<script src="assets/js/core.js"></script>
 <script>
+  Auth.redirectIfAuthed();
 
-function loginUser(){
-
-const email=document.getElementById("email").value;
-
-const password=document.getElementById("password").value;
-
-const savedEmail=localStorage.getItem("email");
-
-const savedPassword=localStorage.getItem("password");
-
-if(email===savedEmail && password===savedPassword){
-
-window.location.href="pages/dashboard.html";
-
-}else{
-
-alert("ایمیل یا رمز عبور اشتباه است.");
-
-}
-
-}
-
+  document.getElementById("loginForm").addEventListener("submit", (e)=>{
+    e.preventDefault();
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value;
+    if(!username || !password){ UI.toast(Lang.t("err_fill_all"), "danger"); return; }
+    const res = Auth.login({username, password});
+    if(!res.ok){ UI.toast(Lang.t("err_invalid_login"), "danger"); return; }
+    UI.toast(Lang.t("ok_login"), "success");
+    setTimeout(()=> window.location.href = "pages/dashboard.html", 500);
+  });
 </script>
-
 </body>
-
-</html>
+  </html>
+  
