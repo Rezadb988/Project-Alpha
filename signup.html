@@ -1,94 +1,97 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Project Alpha - Sign Up</title>
-
-<link rel="stylesheet" href="css/style.css">
-
+<title>ثبت‌نام | پروژه آلفا</title>
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
 
-<div class="language">
-فارسی | English
+<nav class="navbar">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="logo-mark">α</span><span data-i18n="brand">پروژه آلفا</span></a>
+    <div class="nav-actions">
+      <div class="lang-switch">
+        <button data-lang="fa">فا</button>
+        <button data-lang="en">EN</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="auth-wrap">
+  <div class="glass auth-card">
+    <div class="auth-logo">α</div>
+    <div class="auth-title" data-i18n="signup_title">ساخت حساب کاربری</div>
+    <div class="auth-sub" data-i18n="signup_sub">رایگان شروع کن و مسیر رشدت را بساز</div>
+
+    <form id="signupForm">
+      <div class="field">
+        <label data-i18n="field_name">نام کامل</label>
+        <input type="text" id="name" required>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label data-i18n="field_username">نام کاربری</label>
+          <input type="text" id="username" autocomplete="username" required>
+        </div>
+        <div class="field">
+          <label data-i18n="field_email">ایمیل</label>
+          <input type="email" id="email" autocomplete="email" required>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label data-i18n="field_password">رمز عبور</label>
+          <input type="password" id="password" autocomplete="new-password" required>
+        </div>
+        <div class="field">
+          <label data-i18n="field_confirm">تکرار رمز عبور</label>
+          <input type="password" id="confirm" autocomplete="new-password" required>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block" data-i18n="btn_signup">ساخت حساب</button>
+    </form>
+
+    <div class="auth-divider"><span data-i18n="or_continue">یا ادامه با</span></div>
+    <div class="social-row">
+      <button class="btn btn-ghost social-btn" onclick="UI.toast(Lang.t('coming_soon'))">Google</button>
+      <button class="btn btn-ghost social-btn" onclick="UI.toast(Lang.t('coming_soon'))">Apple</button>
+    </div>
+
+    <div class="auth-foot">
+      <span data-i18n="have_account">حساب کاربری داری؟</span>
+      <a href="login.html" data-i18n="login_link">وارد شو</a>
+    </div>
+  </div>
 </div>
 
-<div class="signup-box">
-
-<h1>
-ساخت حساب Alpha
-</h1>
-
-<p>
-سفر رشد خودت را از امروز شروع کن.
-</p>
-
-<input
-type="text"
-id="username"
-placeholder="نام کاربری">
-
-<input
-type="email"
-id="email"
-placeholder="ایمیل">
-
-<input
-type="password"
-id="password"
-placeholder="رمز عبور">
-
-<button class="main-btn" onclick="saveUser()">
-شروع سفر Alpha
-</button>
-
-<div class="free">
-
-🎁
-۳ روز دسترسی رایگان برای شروع
-
-<br><br>
-
-قبلاً حساب داری؟
-
-<br>
-
-<a href="login.html">
-ورود به Alpha
-</a>
-
-</div>
-
-</div>
-
+<script src="assets/js/core.js"></script>
 <script>
+  Auth.redirectIfAuthed();
 
-function saveUser(){
+  document.getElementById("signupForm").addEventListener("submit", (e)=>{
+    e.preventDefault();
+    const name = document.getElementById("name").value.trim();
+    const username = document.getElementById("username").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+    const confirm = document.getElementById("confirm").value;
 
-const username=document.getElementById("username").value;
-const email=document.getElementById("email").value;
-const password=document.getElementById("password").value;
-
-if(username==="" || email==="" || password===""){
-alert("لطفاً همه فیلدها را تکمیل کنید.");
-return;
-}
-
-localStorage.setItem("username",username);
-localStorage.setItem("email",email);
-localStorage.setItem("password",password);
-
-window.location.href="pages/dashboard.html";
-
-}
-
+    if(!name || !username || !email || !password || !confirm){
+      UI.toast(Lang.t("err_fill_all"), "danger"); return;
+    }
+    if(password !== confirm){
+      UI.toast(Lang.t("err_pass_mismatch"), "danger"); return;
+    }
+    const res = Auth.signup({name, username, email, password});
+    if(!res.ok){
+      UI.toast(Lang.t("err_user_exists"), "danger"); return;
+    }
+    UI.toast(Lang.t("ok_signup"), "success");
+    setTimeout(()=> window.location.href = "pages/dashboard.html", 500);
+  });
 </script>
-
 </body>
-
 </html>
